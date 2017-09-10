@@ -12,15 +12,24 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache'),
 
-gulp.task('concatCss', function() {
-  return gulp.src('./src/sass/style.sass')
+gulp.task('sass', function() {
+  return setTimeout(() => {
+    return gulp.src('./src/sass/style.sass')
     .pipe(sass({ style: 'expanded' }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(cssnano())
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(notify({ message: 'ConcatCss task complete' }))
+    .pipe(gulp.dest('./src/sass'))
+  }, 200)
+})
+
+gulp.task('concatCss', function() {
+  return setTimeout(() => {
+    return gulp.src(['./src/lib/css/normalize.css', './src/sass/style.css'])
+      .pipe(concat('style.css'))
+      .pipe(gulp.dest('./dist/css'))
+      .pipe(rename({ suffix: '.min' }))
+      .pipe(cssnano())
+      .pipe(gulp.dest('./dist/css'))
+    }, 1000)
 })
 
 gulp.task('concatJs', function() {
@@ -30,14 +39,12 @@ gulp.task('concatJs', function() {
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
-    .pipe(notify({ message: 'ConcatJs task complete' }));
 });
 
 gulp.task('images', function() {
   return gulp.src('./src/images/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('dist/images'))
-    .pipe(notify({ message: 'Images task complete' }));
 });
 
 gulp.task('clean', function() {
@@ -49,10 +56,12 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('watch', function() {  
-  gulp.watch('./src/sass/**/*.sass', ['concatCss']);
+  gulp.watch('./src/sass/**/*.sass', ['sass', 'concatCss']);
   gulp.watch('./src/js/**/*.js', ['concatJs']);
   gulp.watch('./src/images/**/*', ['images']);
 });
+
+gulp.task('default', ['sass', 'concatCss', 'concatJs', 'watch']);
 
 gulp.task('server', ['watch'], function() {
   gulp.src('.')
