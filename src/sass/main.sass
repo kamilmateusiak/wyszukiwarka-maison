@@ -1,7 +1,87 @@
-@import 'sub'
-@import 'navbar'
+.container
+	padding-right: 15px
+	padding-left: 15px
+	margin-right: auto
+	margin-left: auto
 
-$main-color: #332;
-
-html
-    color: $main-color
+.search
+	&__sidebar
+		width: 30%
+		float: left
+		min-width: 200px
+	&__main
+		width: 70%
+		min-width: 400px
+		float: right
+	&__results
+		&-element
+			width: 50%
+			display: block
+			float: left
+			position: relative
+			&:nth-child(odd)
+				.search__results-product
+					margin-right: 10px
+			&:nth-child(even)
+				.search__results-product
+					margin-left: 10px
+		&-product
+			margin: 0
+			margin-bottom: 10px
+			height: 500px
+			&:hover
+				.search__results-product-img--top
+					opacity: 0
+				.search__fav-icon, .search__add-to-cart
+					opacity: 1
+			&-img
+				position: absolute
+				left: 0
+				transition: opacity 1s ease-in-out
+					
+			
+	&__fav-icon, &__new-label, &__description, &__add-to-cart
+		position: absolute
+		margin: 0
+		padding: 0
+	&__new-label
+		top: 20px
+		left: 20px
+		font-weight: 700
+	&__fav-icon
+		top: 20px
+		right: 20px
+		opacity: 0
+		transition: opacity 1s ease-in-out
+		transform: translateX(-50%)
+	&__description
+		bottom: 20px
+		left: 20px
+		transform: translateY(-10px)
+		&-name
+			margin: 0
+			margin-bottom: 10px
+		&-price
+			margin: 0
+	&__add-to-cart
+		bottom: 20px
+		right: 20px
+		opacity: 0
+		transition: opacity 1s ease-in-out
+		transform: translate(-10px, -50%)
+		&-icon
+			height: 18px
+			vertical-align: bottom
+			margin-right: 10px
+	&__header
+		overflow: hidden
+		margin-bottom: 20px
+		&-sort
+			float: left
+			font-weight: 700
+			font-size: 20px
+			margin: 0
+		&-count
+			float: right
+			margin: 0
+			line-height: 20px
