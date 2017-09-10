@@ -55,13 +55,13 @@ gulp.task('default', ['clean'], function() {
     gulp.start('concatCss', 'concatJs', 'images');
 });
 
-gulp.task('watch', function() {  
+gulp.task('watch', ['sass', 'concatCss', 'concatJs'], function() {  
   gulp.watch('./src/sass/**/*.sass', ['sass', 'concatCss']);
   gulp.watch('./src/js/**/*.js', ['concatJs']);
   gulp.watch('./src/images/**/*', ['images']);
 });
 
-gulp.task('default', ['sass', 'concatCss', 'concatJs', 'watch']);
+gulp.task('default', ['watch']);
 
 gulp.task('server', ['watch'], function() {
   gulp.src('.')
