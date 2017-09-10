@@ -15,8 +15,71 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&amp;subset=latin-ext" rel="stylesheet">
     </head>
     <body>
+        <div style="height: 300px; width: 100%; background-color: #b2b2b2;">SLIDER</div>
         <main class="container search">
-            <aside class="search__sidebar">Search filters</aside>
+            <aside class="search__sidebar">
+                <article class="search__sidebar-section">
+                    <p class="search__sidebar-section-header">Categories</p>
+                    <div class="search__categories">
+                        <p class="search__filter-option">blabla<sup>07</sup></p>
+                        <p class="search__filter-option">blabla<sup>11</sup></p>
+                        <p class="search__filter-option">blabla<sup>13</sup></p>
+                    </div>
+                </article>
+                <article class="search__sidebar-section">
+                    <p class="search__sidebar-section-header">Filter by</p>
+                    <div class="search__prices">
+                        <p class="search__sidebar-section-subheader">Price</p>
+                        <div>
+                            <input class="search__prices-input" type="number" name="price_from" value="0">
+                            <input class="search__prices-input" type="number" name="price_to" value="200">
+                            <input class="search__prices-btn" type="submit" value="Filter">
+                        </div>
+                    </div>
+                    <div class="search__colors">
+                        <p class="search__sidebar-section-subheader">Color</p>
+                        <section>
+                           <div class="search__color">
+                               <div class="search__color-option" style="background-color: #c8c8c8;"></div>
+                           </div>
+                           <div class="search__color">
+                               <div class="search__color-option" style="background-color: #fff;"></div>
+                           </div>
+                           <div class="search__color">
+                               <div class="search__color-option" style="background-color: #fe8a8a;"></div>
+                           </div>
+                           <div class="search__color">
+                               <div class="search__color-option" style="background-color: #b4e7fc;"></div>
+                           </div>
+                           <div class="search__color">
+                               <div class="search__color-option" style="background-color: #bffdce;"></div>
+                           </div>
+                        </section>
+                    </div>
+                    <div class="search__sizes">
+                        <p class="search__sidebar-section-subheader">Size</p>
+                        <div class="search__categories">
+                            <p class="search__filter-option">blabla<sup>07</sup></p>
+                            <p class="search__filter-option">blabla<sup>11</sup></p>
+                            <p class="search__filter-option">blabla<sup>13</sup></p>
+                        </div>
+                    </div>
+                    <div class="search__brands">
+                        <p class="search__sidebar-section-subheader">Brands</p>
+                        <div class="search__categories">
+                            <p class="search__filter-option">blabla<sup>07</sup></p>
+                            <p class="search__filter-option">blabla<sup>11</sup></p>
+                            <p class="search__filter-option">blabla<sup>13</sup></p>
+                        </div>
+                    </div>
+                </article>
+                <article class="search__sidebar-section">
+                    <p class="search__sidebar-section-header">Popular Tags</p>
+                    <p class="search__tags">
+                        <span class="search__tags-single">Simple</span>, <span class="search__tags-single">Minimalism</span>, <span class="search__tags-single">Furniture</span>, <span class="search__tags-single">White</span>, <span class="search__tags-single">Black</span>
+                    </p>
+                </article>
+            </aside>
             <div class="search__main">
                 <header class="search__header">
                     <p class="search__header-sort">Sort by: A-Z</p>

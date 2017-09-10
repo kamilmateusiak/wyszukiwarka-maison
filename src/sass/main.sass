@@ -1,3 +1,6 @@
+$grey: #b2b2b2
+$dark_grey: #4c4c4c
+
 .container
 	padding-right: 15px
 	padding-left: 15px
@@ -5,12 +8,9 @@
 	margin-left: auto
 
 .search
-	&__sidebar
-		width: 30%
-		float: left
-		min-width: 200px
+	margin-top: 50px
 	&__main
-		width: 70%
+		width: calc(100% - 300px)
 		min-width: 400px
 		float: right
 	&__results
@@ -21,13 +21,17 @@
 			position: relative
 			&:nth-child(odd)
 				.search__results-product
-					margin-right: 10px
+					&-img
+						right: 10px
+						left: 0
 			&:nth-child(even)
 				.search__results-product
-					margin-left: 10px
+					&-img
+						right: 0
+						left: 10px
 		&-product
 			margin: 0
-			margin-bottom: 10px
+			margin-bottom: 20px
 			height: 500px
 			&:hover
 				.search__results-product-img--top
@@ -38,6 +42,8 @@
 				position: absolute
 				left: 0
 				transition: opacity 1s ease-in-out
+				width: calc(100% - 10px)
+				height: calc(100% - 20px)
 					
 			
 	&__fav-icon, &__new-label, &__description, &__add-to-cart
@@ -57,7 +63,7 @@
 	&__description
 		bottom: 20px
 		left: 20px
-		transform: translateY(-10px)
+		transform: translateY(-20px)
 		&-name
 			margin: 0
 			margin-bottom: 10px
@@ -68,7 +74,7 @@
 		right: 20px
 		opacity: 0
 		transition: opacity 1s ease-in-out
-		transform: translate(-10px, -50%)
+		transform: translate(-20px, -20px)
 		&-icon
 			height: 18px
 			vertical-align: bottom
@@ -81,7 +87,66 @@
 			font-weight: 700
 			font-size: 20px
 			margin: 0
+			line-height: 20px
 		&-count
 			float: right
 			margin: 0
 			line-height: 20px
+			color: $grey
+	&__sidebar
+		float: left
+		width: 300px
+		&-section
+			border-bottom: 1px solid $dark_grey
+			margin-right: 50px
+			padding-bottom: 30px
+			margin-bottom: 30px
+			&-header
+				font-weight: 700
+				font-size: 20px
+				margin: 0
+				line-height: 20px
+				margin-bottom: 20px
+			&-subheader
+				font-weight: 700
+				font-size: 18px
+				margin: 0
+				margin-bottom: 10px
+
+	&__categories, &__colors, &__brands, &__sizes, &__prices
+		margin-bottom: 30px
+	&__prices
+		overflow: hidden
+		&-input
+			width: 50px
+			display: inline-block
+			float: left
+			margin-right: 20px
+			padding: 6px
+			font-size: 12px
+		&-btn
+			width: 60px
+			display: inline-block
+			float: right
+			padding: 8px
+			border: 0
+			background-color: #e2e2e2
+			font-size: 12px
+	&__categories
+		color: $dark_grey
+	&__colors
+		overflow: hidden
+	&__color
+		float: left
+		display: inline-block
+		width: 20%
+		&-option
+			border-radius: 9999px
+			height: 30px
+			width: 30px
+			margin: 5px auto
+			box-shadow: 0px 0px 2px 0px #000
+	&__tags
+		&-single
+			cursor: pointer
+
